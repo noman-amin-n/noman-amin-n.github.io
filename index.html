@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noman Amin</title>
+    
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"></div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="active-link">Home</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="cv.html" class="btn-cv">CV</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero container" id="home">
+        <div class="hero-text">
+            <h1 class="hero-title">Noman Amin</h1>
+            <span class="eyebrow">Lecturer <br> Department of CSE, Southeast University</span>
+            
+            
+            <p style="margin-top: 15px;">
+                Noman Amin is a Lecturer in the Department of Computer Science & Engineering at Southeast University, Bangladesh. 
+                His research focuses on video coding and compression, transformer-driven acceleration for VVC, 
+                and attention-based computer vision. 
+                He earned his B.Sc. in CSE from Rajshahi University of Engineering & Technology (RUET), graduating in the top 4% of his class.                 
+            </p>
+            
+            <!-- <a href="research.html" class="cta-link" style="margin-top: 25px;">Explore My Research &rarr;</a> -->
+        </div>
+        <div class="hero-image">
+            <img src="IMG_6006.JPG" alt="Profile Photo">
+        </div>
+    </section>
+
+    <!-- <section class="about-me" id="about">
+        <div class="container">
+            <h2 class="section-title">A Brief Introduction</h2>
+            <div class="about-content">
+                <p>Hello! I am **N. Amin**, a dedicated Lecturer in the Department of Computer Science & Engineering at Southeast University, Dhaka. My academic background from RUET (Rank 6th, Top 4%) provided a strong foundation in core CS principles, supplemented by extensive experience in competitive programming (Max Rating: 1256) and cutting-edge research.</p>
+
+                <p>My primary focus is in **Video Coding and Compression**, utilizing novel deep learning models like **Vision Transformers** and **ConvNeXt** to optimize the rate-distortion performance of VVC (Versatile Video Coding). I aim to translate complex algorithmic ideas into practical, high-performance implementations. I am also experienced in medical image processing and digital circuit design. Find more details on my <a href="academics.html" class="inline-link">Academics</a> and <a href="experiences.html" class="inline-link">Experiences</a> pages.</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="research-focus" id="research-summary">
+        <div class="container">
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="grid-3">
+                <div class="focus-item">
+                    <h3>01. Video Coding and Compression</h3>
+                    <p>Focus on complexity reduction in VVC using Vision Transformers and deep convolutional networks to achieve a strong rate-distortion balance.</p>
+                </div>
+                <div class="focus-item">
+                    <h3>02. Applied Deep Learning</h3>
+                    <p>Designing and training tailored models (DenseNet, ConvNeXt) for critical tasks like skin lesion detection and deepfake mitigation in competitive environments.</p>
+                </div>
+                <div class="focus-item">
+                    <h3>03. Digital Systems Design</h3>
+                    <p>Expertise in low-level hardware design (Verilog, OpenLane, Skywater 130 nm PDK).</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="research.html" class="cta-link" style="font-size: 1rem;">Explore All Research Projects &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="publications container" id="news">
+        <h2 class="section-title" style="margin-bottom: 30px;">Updates</h2>
+
+        <article class="pub-item">
+
+            <span class="pub-meta" style="font-style: normal; color: var(--color-accent);">2025</span>
+            <a href="publications.html" class="pub-title" >Paper accepted for <b>IEEE ICCIT 2025</b> titled "Fast CU Splitting in VVC: A DCT-Based Homogeneity-Aware Approach for Encoding Complexity Reduction".</a>
+            <p class="pub-desc"></p>
+
+            <a href="publications.html" class="pub-title">Paper accepted for <b>IEEE ICCIT 2025</b> titled "Quality-Aware CNN-Based CU Partitioning for VVC Intra Coding with Negligible Bitrate Overhead".</a>
+            <p class="pub-desc"></p>
+
+            <!-- <span class="pub-meta" style="font-style: normal; color: var(--color-accent);">2025</span> -->
+            <a href="publications.html" class="pub-title" >Paper accepted for <b>IEEE ICCIT 2025</b> on Swin Transformer-Driven CU Partitioning for VVC.</a>
+            <p class="pub-desc"></p>
+        </article>
+
+        <article class="pub-item">
+            <span class="pub-meta" style="font-style: normal; color: var(--color-accent);">2024</span>
+            <a href="achievements.html" class="pub-title">Best Paper Award at ICISET 2024 for work on Concatenated DenseNet and Multi-Attention for skin lesion detection.</a>
+            <p class="pub-desc">The award-winning paper achieved 97.08% accuracy on the ISIC 2018 dataset.</p>
+        </article>
+
+        
+
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="copyright">
+                &copy; <span id="current-year"></span> Noman Amin
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=7gtWOFMAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://www.researchgate.net/profile/Noman-Amin-2?ev=hdr_xprf" target="_blank">ResearchGate</a>
+                <a href="https://orcid.org/0009-0000-7102-0461" target="_blank">ORCID</a> 
+                <a href="https://github.com/noman-amin-n" target="_blank">GitHub</a> 
+                <!-- <a href="#">Twitter / X</a> -->
+                <a href="https://www.linkedin.com/in/noman-amin-164231239" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

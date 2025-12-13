@@ -1,0 +1,1420 @@
+/* =========================================
+   RESET (KEEP AT VERY TOP)
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Crucial for responsive design */
+}
+
+/* =========================================
+   CSS VARIABLES (Easy Customization)
+   ========================================= */
+:root {
+  --color-primary: #0A192F;    /* Deep Oxford Blue - Classic/Formal */
+  --color-secondary: #8892B0;  /* Slate Grey - Subtitles */
+  --color-accent: #1d67d7;
+  --color-bg: #F8F9FA;         /* Off-White - Background */
+  --color-white: #ffffff;
+  --color-text: #333333;
+
+  --font-serif: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
+
+  --max-width: 1100px;
+
+  /* Modern UI helpers (visual only; does not change layout structure) */
+  --color-border: rgba(10, 25, 47, 0.10);
+  --surface: rgba(255, 255, 255, 0.85);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --shadow-xs: 0 6px 16px rgba(10, 25, 47, 0.06);
+  --shadow-sm: 0 10px 24px rgba(10, 25, 47, 0.08);
+  --shadow-md: 0 18px 40px rgba(10, 25, 47, 0.10);
+}
+
+/* =========================================
+   GLOBAL BASE
+   ========================================= */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(29, 103, 215, 0.18);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover { color: var(--color-accent); }
+
+:focus-visible {
+  outline: 3px solid rgba(29, 103, 215, 0.35);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Optional: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+header {
+  background-color: var(--color-bg);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+
+  /* Modern touch */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(248, 249, 250, 0.88);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+/* Modern link micro-interaction (does not change layout) */
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  position: relative;
+  padding: 6px 2px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* CV button (keep as is, with a slightly modern feel) */
+
+
+
+.btn-cv {
+  padding: 8px 15px;
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 999px; /* modern pill */
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 20px rgba(10,25,47,0.08);
+}
+
+.btn-cv:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(29, 103, 215, 0.20);
+}
+
+
+
+/* =========================================
+   HOME: HERO SECTION
+   ========================================= */
+.hero {
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  min-height: 80vh;
+}
+
+.hero-text { flex: 1; }
+
+.eyebrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  font-size: 0.95rem;
+  color: #555;
+  max-width: 90%;
+  margin-bottom: 35px;
+}
+
+.cta-link {
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 20px 20px 0px var(--color-secondary);
+  object-fit: cover;
+
+  /* Modern polish */
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* =========================================
+   HOME: RESEARCH INTERESTS
+   ========================================= */
+.research-focus {
+  background-color: var(--color-white);
+  padding: 80px 0;
+
+  /* subtle modern separation */
+  border-top: 1px solid rgba(10, 25, 47, 0.06);
+  border-bottom: 1px solid rgba(10, 25, 47, 0.06);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+/* modern cards without changing grid structure */
+.focus-item {
+  padding: 18px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(10, 25, 47, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.focus-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.focus-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.focus-item p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* =========================================
+   HOME: ABOUT ME
+   ========================================= */
+.about-me {
+  background-color: var(--color-white);
+  padding: 60px 0;
+
+  border-top: 1px solid rgba(10, 25, 47, 0.06);
+}
+
+.about-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-me .section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.about-content p strong { color: var(--color-primary); }
+
+.inline-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  border-bottom: 1px dashed var(--color-accent);
+}
+
+.inline-link:hover {
+  color: var(--color-primary);
+  border-bottom-style: solid;
+}
+
+/* =========================================
+   HOME: PUBLICATIONS (HOMEPAGE LIST)
+   ========================================= */
+.publications { padding: 80px 0; }
+
+.pub-item {
+  margin-bottom: 18px;
+  padding: 18px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(10, 25, 47, 0.08);
+  background: rgba(255,255,255,0.72);
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pub-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.pub-item:last-child { margin-bottom: 0; }
+
+.pub-title {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.pub-meta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pub-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.pub-links a {
+  font-size: 0.85rem;
+  margin-right: 15px;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.pub-links a:hover { color: var(--color-primary); }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 40px 0;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: var(--color-white);
+  margin-left: 15px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   ACADEMICS PAGE STYLES
+   ========================================= */
+.academics-section { padding: 60px 0 100px 0; }
+
+.page-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  display: block;
+}
+
+/* Timeline Layout */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+  border-left: 2px solid rgba(10, 25, 47, 0.1);
+  position: relative;
+  padding-bottom: 20px;
+
+  /* modern card feel */
+  border-radius: var(--radius-md);
+  padding-top: 16px;
+  padding-right: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-xs);
+}
+
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  border: 2px solid var(--color-bg);
+}
+
+/* Content Blocks */
+.time-block {
+  flex-shrink: 0;
+  width: 150px;
+  margin-right: 40px;
+  text-align: center;
+}
+
+.logo-placeholder img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  object-fit: scale-down;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(10,25,47,0.08);
+}
+
+.timeline-date {
+  display: block;
+  color: var(--color-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-block { flex-grow: 1; padding-top: 5px; }
+
+.degree-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.institution-name {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Metrics and Achievements */
+.key-achievements { list-style: none; padding: 0; margin: 0; }
+
+.metric-item { margin-bottom: 8px; font-size: 1rem; }
+
+.metric-label {
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-block;
+  width: 120px;
+}
+
+.metric-value { color: var(--color-text); }
+
+.metric-item.highlight .metric-value {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* =========================================
+   PUBLICATIONS PAGE STYLES
+   ========================================= */
+.publications-page-section { padding: 60px 0 100px 0; }
+
+.pub-type-group { margin-bottom: 50px; padding-top: 20px; }
+
+.publications-page-section .group-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.publications-page-section .group-title i {
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+
+
+
+.pub-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 10px 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+
+  /* modern separation */
+  border-radius: var(--radius-md);
+}
+
+.pub-entry:last-child { border-bottom: none; }
+
+.pub-year {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  align-self: flex-start;
+}
+
+.citation {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.citation strong { color: var(--color-primary); }
+
+.citation em {
+  font-style: italic;
+  font-weight: 600;
+  color: #444;
+}
+
+.author-note {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-top: 5px;
+}
+
+/* Publication Links */
+.pub-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-top: 3px;
+}
+
+.pub-links-group a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+
+.pub-links-group a:hover { color: var(--color-primary); }
+
+.pub-links-group a i {
+  margin-right: 5px;
+  color: var(--color-accent);
+}
+
+/* =========================================
+   PROJECTS PAGE STYLES
+   ========================================= */
+.projects-section { padding: 60px 0 100px 0; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background-color: var(--color-white);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-image-container {
+  height: 220px;
+  overflow: hidden;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image-container img { transform: scale(1.05); }
+
+.project-details { padding: 20px; }
+
+.project-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  min-height: 70px;
+}
+
+.project-tags {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.project-links a {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin-right: 15px;
+}
+
+.project-links a:hover { color: var(--color-primary); }
+
+.project-links i { margin-right: 5px; }
+
+/* =========================================
+   ACHIEVEMENTS PAGE STYLES
+   ========================================= */
+.achievements-section { padding: 60px 0 100px 0; }
+
+.achievement-group { margin-bottom: 40px; padding-top: 30px; }
+
+.achievements-section .group-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.achievements-section .group-title i {
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+.group-divider {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 50px 0;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+
+  /* modern hover */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: var(--radius-md);
+}
+
+.achievement-item:hover {
+  background: rgba(231, 246, 255, 0.968);
+  transform: translateY(-2px);
+}
+
+.achievement-item:last-child { border-bottom: none; }
+
+.achievement-year {
+  flex-shrink: 0;
+  width: 100px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  text-align: left;
+  padding-top: 2px;
+}
+
+.achievement-details { flex-grow: 1; }
+
+.achievement-name {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 5px;
+}
+
+.achievement-context {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* =========================================
+   EXPERIENCES PAGE STYLES
+   ========================================= */
+.experiences-section { padding: 60px 0 100px 0; }
+
+.experience-group { margin-bottom: 40px; padding-top: 30px; }
+
+.experiences-section .group-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.experiences-section .group-title i {
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+.experience-item {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+
+  /* modern surface */
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.60);
+  box-shadow: var(--shadow-xs);
+}
+
+.experience-item:last-child { border-bottom: none; }
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.role-title {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.role-meta {
+  text-align: right;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.experiences-section .institution-name {
+  font-weight: 500;
+  color: var(--color-accent);
+  display: block;
+}
+
+.role-date {
+  color: var(--color-secondary);
+  font-style: italic;
+  display: block;
+  margin-top: 2px;
+}
+
+.role-responsibilities {
+  list-style: disc;
+  margin-left: 20px;
+  padding-left: 0;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.role-responsibilities li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.role-tech-stack {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+  padding-left: 2px;
+}
+
+.role-tech-stack strong { color: var(--color-primary); }
+
+/* =========================================
+   RESEARCH PAGE STYLES
+   ========================================= */
+.research-section { padding: 60px 0 100px 0; }
+
+.research-group { margin-bottom: 40px; padding-top: 20px; }
+
+
+.research-section .group-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.research-section .group-title i {
+  color: var(--color-accent);
+  margin-right: 10px;
+}
+
+
+
+.interest-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 15px;
+}
+
+.interest-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #444;
+  position: relative;
+  padding-left: 25px;
+}
+
+.interest-list li::before {
+  content: "\f058"; /* Font Awesome check-circle */
+  font-family: 'Font Awesome Solid';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.interest-list li strong {
+    color: var(--color-primary);
+}
+
+
+/* Thesis Block Styling */
+.thesis-block {
+  padding: 20px;
+  border: 1px solid rgba(10, 25, 47, 0.08);
+  border-left: 4px solid var(--color-accent);
+  background-color: rgba(255,255,255,0.78);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.thesis-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+
+.thesis-meta {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.thesis-summary {
+  list-style: square;
+  font-size: 0.95rem;
+  margin-left: 25px;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.thesis-summary li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.thesis-links .cta-link-small {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 999px; /* modern pill */
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 20px rgba(10,25,47,0.08);
+}
+
+.thesis-links .cta-link-small:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(29, 103, 215, 0.20);
+}
+
+/* Individual Research Projects */
+.research-project-item {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+}
+
+.project-title-small {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.project-badges { margin-top: 10px; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px; /* modern pill */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.badge.published { background-color: #D5F5E3; color: #1E8449; }
+.badge.completed { background-color: #f5ecd5; color: #84641e; }
+.badge.accepted { background-color: #D6EAF8; color: #2874A6; }
+.badge.status { background-color: #E8DAEF; color: #6C3483; }
+
+.research-links-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 20px;
+  color: #888;
+}
+
+/* =========================================
+   CV PAGE STYLES
+   ========================================= */
+.cv-section {
+  padding: 60px 0 100px 0;
+  min-height: 90vh;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.download-btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px 20px;
+  border-radius: 999px; /* modern pill */
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 14px 28px rgba(10,25,47,0.12);
+}
+
+.download-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(29,103,215,0.18);
+}
+
+/* The PDF Viewer Box */
+.pdf-viewer-container {
+  width: 100%;
+  height: 800px; /* Fixed height for desktop (kept) */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: auto; /* allows scrolling (fixes "cut" feeling) */
+  -webkit-overflow-scrolling: touch;
+  background-color: #eee;
+  box-shadow: var(--shadow-sm);
+}
+
+.pdf-viewer-container iframe {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for Active CV Button in Nav (kept) */
+.active-cv {
+  background-color: var(--color-primary);
+  color: var(--color-white) !important;
+}
+
+/* =========================================
+   MOBILE MENU STYLES (DEFAULT)
+   ========================================= */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* Force-hide hamburger on desktop */
+@media (min-width: 769px) {
+  .hamburger { display: none !important; }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE STYLES (768px and below)
+   Smaller font sizes + page-wise fixes
+   + Added consistent edge gap (left/right/top/bottom)
+   + Modern mobile menu
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* --- GLOBAL PAGE EDGE GAP (all sides) + safe-area support --- */
+  body{
+    padding:
+      calc(14px + env(safe-area-inset-top))
+      calc(16px + env(safe-area-inset-right))
+      calc(14px + env(safe-area-inset-bottom))
+      calc(16px + env(safe-area-inset-left));
+    line-height: 1.55;
+  }
+
+  header{
+    top: calc(14px + env(safe-area-inset-top));
+    padding: 12px 0;
+    border-radius: 12px;
+  }
+
+  html { font-size: 14px; } /* smaller overall */
+
+  .container {
+    width: 95%;
+    padding: 0; /* body already gives edge gap */
+    overflow-x: hidden;
+  }
+
+  .page-title { font-size: 1.35rem; margin-bottom: 8px; }
+  .section-title { font-size: 1.15rem; margin-bottom: 22px; }
+
+  h1 { font-size: 1.6rem; line-height: 1.15; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.05rem; }
+  h4 { font-size: 1rem; }
+
+  p { font-size: 0.95rem; }
+  .section-subtitle { font-size: 0.95rem; margin-bottom: 28px; }
+
+  .hero { padding: 40px 0; min-height: auto; }
+  .research-focus { padding: 50px 0; }
+  .about-me { padding: 45px 0; }
+  .publications { padding: 55px 0; }
+
+  .academics-section,
+  .publications-page-section,
+  .projects-section,
+  .achievements-section,
+  .experiences-section,
+  .research-section,
+  .cv-section {
+    padding: 45px 0 70px 0;
+  }
+
+  /* --- NAVIGATION (Modern Mobile Menu) --- */
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+  }
+
+  .logo { font-size: 1.2rem; }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(10, 25, 47, 0.10);
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--color-primary);
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: var(--shadow-sm);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger:active { transform: scale(0.98); }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    gap: 10px;
+    margin-top: 12px;
+
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+    overflow: hidden;
+    pointer-events: none;
+
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(10, 25, 47, 0.08);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease;
+  }
+
+  .nav-links.active {
+    max-height: 70vh;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 12px;
+  }
+
+  .nav-links li { width: 100%; margin: 0; }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: rgba(248, 249, 250, 0.65);
+    border: 1px solid rgba(10, 25, 47, 0.08);
+    color: var(--color-primary);
+    text-align: left;
+    transition: background-color 0.25s ease, transform 0.18s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(248, 249, 250, 0.95);
+    border-color: rgba(10, 25, 47, 0.14);
+    box-shadow: var(--shadow-xs);
+    transform: translateY(-1px);
+  }
+
+  .nav-links a.active-link {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 16px 30px rgba(29, 103, 215, 0.22);
+  }
+
+  .btn-cv { padding: 8px 14px; font-size: 0.9rem; }
+
+  /* --- HOME: HERO --- */
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 26px;
+  }
+
+  .eyebrow { font-size: 0.75rem; letter-spacing: 1.5px; margin-bottom: 10px; }
+
+  .hero h1 { font-size: 1.7rem; margin-bottom: 16px; }
+  .hero p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+  }
+
+  .hero-image { justify-content: center; }
+  .hero-image img {
+    max-width: 78%;
+    box-shadow: 10px 10px 0px var(--color-secondary);
+  }
+
+  /* --- HOME: RESEARCH FOCUS GRID --- */
+  .grid-3 { grid-template-columns: 1fr; gap: 22px; }
+  .focus-item h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .focus-item p { font-size: 0.93rem; }
+
+  /* --- ABOUT --- */
+  .about-content { text-align: left; padding: 0 6px; }
+  .about-content p { font-size: 0.98rem; margin-bottom: 14px; }
+
+  /* --- ACADEMICS PAGE: TIMELINE --- */
+  .timeline { gap: 24px; }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+    border-left: none;
+    padding-bottom: 0;
+  }
+
+  .timeline-item:before { display: none; }
+
+  .time-block {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 14px;
+  }
+
+  .logo-placeholder img { width: 84px; height: 84px; }
+  .timeline-date { font-size: 0.82rem; }
+
+  .degree-title { font-size: 1.2rem; }
+  .institution-name { font-size: 0.95rem; margin-bottom: 14px; }
+
+  .metric-item { font-size: 0.95rem; }
+  .metric-label { width: auto; display: block; margin-bottom: 2px; }
+
+  /* --- PUBLICATIONS PAGE: ENTRY GRID FIX --- */
+  .publications-page-section .group-title { font-size: 1.25rem; margin-bottom: 18px; }
+
+  .pub-entry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .pub-year { font-size: 1.05rem; }
+  .citation { font-size: 0.93rem; }
+  .author-note { font-size: 0.82rem; }
+
+  .pub-links-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* --- PROJECTS PAGE --- */
+  .project-grid { grid-template-columns: 1fr; gap: 22px; }
+  .project-image-container { height: 180px; }
+  .project-title { font-size: 1.05rem; }
+  .project-description { font-size: 0.93rem; min-height: auto; }
+  .project-links a { font-size: 0.9rem; }
+
+  /* --- ACHIEVEMENTS PAGE --- */
+  .achievement-item {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .achievement-year { width: auto; font-size: 0.95rem; }
+  .achievement-name { font-size: 1.05rem; }
+  .achievement-context { font-size: 0.93rem; }
+
+  /* --- EXPERIENCES PAGE --- */
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .role-title { font-size: 1.05rem; }
+  .role-meta { text-align: left; font-size: 0.9rem; }
+
+  .role-responsibilities {
+    margin-left: 18px;
+    font-size: 0.95rem;
+  }
+
+  .role-tech-stack { font-size: 0.88rem; }
+
+  /* --- RESEARCH PAGE --- */
+  .interest-list li { font-size: 0.93rem; padding-left: 22px; }
+  .thesis-title { font-size: 1.05rem; }
+  .thesis-meta { font-size: 0.9rem; }
+  .thesis-summary li { font-size: 0.93rem; }
+
+  /* --- CV PAGE --- */
+  .cv-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  .pdf-viewer-container { height: 520px; border-radius: 8px; }
+
+  /* --- FOOTER --- */
+  footer { padding: 30px 0; font-size: 0.85rem; }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .social-links a { margin: 0 8px; }
+
+  /* --- SAFETY: stop overflow at edges --- */
+  img, iframe, video { max-width: 100%; height: auto; }
+}
+
+/* Optional: Extra small devices (<=480px) for even tighter typography */
+@media (max-width: 480px) {
+  html { font-size: 13px; }
+  body{
+    padding:
+      calc(12px + env(safe-area-inset-top))
+      calc(14px + env(safe-area-inset-right))
+      calc(12px + env(safe-area-inset-bottom))
+      calc(14px + env(safe-area-inset-left));
+  }
+  .hero-image img { max-width: 86%; }
+  .pdf-viewer-container { height: 460px; }
+}

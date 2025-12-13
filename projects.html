@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Noman Amin</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Noman Amin</div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="projects.html" class="active-link">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="cv.html" class="btn-cv">CV</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="projects-section container">
+        <h1 class="page-title">Projects</h1>
+        <p class="section-subtitle"></p>
+
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="AQA.png" alt="Image for Project 1: [Project Title]">
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Air Quality Analyzer</h3>
+                    <p class="project-description">
+                        This system leverages the ESP32 microcontroller 
+                        alongside the MQ135 gas sensor and the DHT11 temperature-humidity sensor 
+                        to continuously monitor air quality metrics. 
+                        Data is transmitted via Wi-Fi to the Blynk platform, enabling real-time remote visualization and tracking.
+                    </p>
+                    <span class="project-tags">#ESP32 #IoT #Sensors</span>
+                    <div class="project-links">
+                        <a href="https://github.com/noman-amin-n/Air-Quality-Analyzer/tree/main" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        <a href="https://github.com/noman-amin-n/Air-Quality-Analyzer/blob/main/Air_Quality_Analyzer/Report/Air%20Quality%20Monitoring%20System.pdf" target="_blank"><i class="fas fa-folder-open"></i>Report</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="/Applications/XAMPP/xamppfiles/htdocs/portfolio_2/cpu.png" alt="Image for Project 2: [Project Title]">
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">5-bit CPU Simulation</h3>
+                    <p class="project-description">
+                        This project showcases the design and simulation of a basic 
+                        5-bit CPU using fundamental digital logic components. 
+                        This CPU architecture was implemented with key operations, 
+                        minimal instruction sets, and essential components like an ALU, RAM, Register Set, and Control Unit.
+                    </p>
+                    <span class="project-tags">#DigitalLogic #CPU #HDL #ComputerArchi</span>
+                    <div class="project-links">
+                        <a href="https://github.com/noman-amin-n/5-Bit-CPU-design" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        <!-- <a href="#" target="_blank"><i class="fas fa-folder-open"></i> Report</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-container">
+                    <!-- <img src="/Applications/XAMPP/xamppfiles/htdocs/portfolio_2/gds.png" alt="Image for Project 3: [Project Title]"> -->
+                    <img src="/Applications/XAMPP/xamppfiles/htdocs/portfolio_2/hitmap.png" alt="Image for Project 3: [Project Title]">
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">5‑bit ALU & FSM and Synthesis</h3>
+                    <p class="project-description">
+                        A 5-bit ALU with FSM controller designed for simulation, synthesis, and physical implementation using the OpenLane Skywater-130 nm PDK. Demonstrates the complete RTL-to-GDSII flow with an FSM driving the ALU datapath.
+                    </p>
+                    <span class="project-tags">#DigitalLogic #ALU #FSM #Synthesis</span>
+                    <div class="project-links">
+                        <a href="https://github.com/noman-amin-n/5-bit-ALU-FSM" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    </div>
+                </div>
+            </div>
+            
+            </div> </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="copyright">
+                &copy; <span id="current-year"></span> Noman Amin
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=7gtWOFMAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://www.researchgate.net/profile/Noman-Amin-2?ev=hdr_xprf" target="_blank">ResearchGate</a>
+                <a href="https://orcid.org/0009-0000-7102-0461" target="_blank">ORCID</a> 
+                <a href="https://github.com/noman-amin-n" target="_blank">GitHub</a> 
+                <!-- <a href="#">Twitter / X</a> -->
+                <a href="https://www.linkedin.com/in/noman-amin-164231239" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

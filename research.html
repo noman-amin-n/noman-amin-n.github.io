@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Noman Amin</title>
+    
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;600&display=swap" rel="stylesheet"> -->
+   
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Noman Amin</div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="research.html" class="active-link">Research</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="cv.html" class="btn-cv">CV</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="research-section container">
+        <h1 class="page-title">Research Focus and Contributions</h1>
+        <p class="section-subtitle"></p>
+
+        <div class="research-group" id="interests">
+            <h2 class="group-title"><i class="fas fa-microscope"></i> Core Research Interests</h2>
+            <ul class="interest-list">
+                <li><b>Video Coding and Compression:</b> Focus on complexity reduction, rate-distortion optimization, and inter-mode/intra-mode prediction in next-generation codecs (VVC).</li>
+                <li><b>Deep Learning for Signal Processing:</b> Application of Vision Transformers (ViT) and advanced Convolutional Neural Networks (CNNs, ConvNeXt) to time-series and video data.</li>
+                <li><b>Computer Vision:</b> Algorithms for image analysis, segmentation (e.g., skin lesion detection), and deepfake detection.</li>
+                <li><b>Machine Learning and Neural Networks:</b> Model efficiency, lightweight architectures, and general theoretical applications of deep learning.</li>
+                <li><b>Medical Image Processing:</b> Developing attention-based models for enhanced diagnostic accuracy in dermatoscopy images.</li>
+            </ul>
+        </div>
+        
+        <hr class="group-divider">
+
+        <div class="research-group" id="thesis">
+            <h2 class="group-title"><i class="fas fa-file-alt"></i> Undergraduate Thesis </h2>
+            
+            <div class="thesis-block">
+                <h3 class="thesis-title">A Vision Transformer Approach to Fast CU Partitioning in VVC</h3>
+                <p class="thesis-meta">Supervisor: Md. Zahirul Islam, Assistant Professor, Department of CSE, RUET</p>
+                
+                <ul class="thesis-summary">
+                    <li>Goal: To significantly reduce the high encoding time of the Versatile Video Coding (VVC) standard by accelerating the computationally expensive Coding Unit (CU) partitioning process.</li>
+                    <li>Methodology: Designed and implemented a Vision-Transformer–driven CU partitioning module to predict the optimal partition structure, bypassing exhaustive Rate-Distortion Optimization (RDO) calculations. </li>
+                    <li>Results & Impact: Achieved a reduction in encoding time by nearly half (50%) while adding only a marginal bitrate overhead. Delivered comprehensive rate-distortion analyses (BD-BR, SSIM, VMAF) confirming robustness.</li>
+                </ul>
+                <div class="thesis-links">
+                    <a href="publications.html#pub2" class="cta-link-small"><i class="fas fa-scroll"></i> Related Publication</a>
+                    <a href="#" class="cta-link-small"><i class="fab fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="group-divider">
+
+        <div class="research-group" id="projects">
+            <h2 class="group-title"><i class="fas fa-clipboard-list"></i> Active and Completed Research Projects</h2>
+
+            <div class="research-project-item">
+                <h4 class="project-title-small">Learning-Based CU Splitting in VVC: A ConvNeXt Approach</h4>
+                <p class="project-description">Developed a separate deep learning model using the ConvNeXt architecture to further accelerate intra-mode partitioning in VVC. Achieved a 71.32% reduction in encoding time, demonstrating the generalizability of learned approaches to VVC complexity reduction.</p>
+                <div class="project-badges">
+                    <span class="badge completed">Completed</span>
+                    <span class="badge status">ISCAS 2026 (Under Review)</span>
+                </div>
+            </div>
+
+            <div class="research-project-item">
+                <h4 class="project-title-small">Intra-Mode Encoding Complexity Reduction: Vision Transformer-Driven CU Partitioning for VVC</h4>
+                <p class="project-description">Proposed a Swin Transformer-based model to bypass exhaustive RDO partitioning in VVC. Achieved up to 70.55% 
+                    reduction in encoding time with negligible bit-rate overhead and minimal degradation in visual quality.</p>
+                <div class="project-badges">
+                    <span class="badge accepted">Accepted</span>
+                    <span class="badge status">ICDMW 2025 (A* Conference)</span>
+                </div>
+            </div>
+            
+            <div class="research-project-item">
+                <h4 class="project-title-small">Fast CU Splitting in VVC: A DCT-Based Homogeneity-Aware Approach</h4>
+                <p class="project-description">An alternative, non-deep-learning approach utilizing Discrete Cosine Transform (DCT) metrics to eliminate redundant RDO partitioning in VVC. Achieved upto 22.29% speedup with minimal quality loss.</p>
+                <div class="project-badges">
+                    <span class="badge accepted">Accepted</span>
+                    <span class="badge status">ICCIT 2025</span>
+                </div>
+            </div>
+
+            <div class="research-project-item">
+                <h4 class="project-title-small">Quality-Aware CNN-Based CU Partitioning for VVC Intra Coding with Negligible Bitrate Overhead</h4>
+                <p class="project-description">Proposed a lightweight, quality-aware CNN to predict CU partitioning for VVC intra coding, avoiding exhaustive RDO checks. Delivers substantial encoding speedups with negligible bitrate overhead and minimal visual-quality loss.</p>
+                <div class="project-badges">
+                    <span class="badge accepted">Accepted</span>
+                    <span class="badge status">ICCIT 2025</span>
+                </div>
+            </div>
+
+            <div class="research-project-item">
+                <h4 class="project-title-small">Enhanced Skin Lesion Detection Using Concatenated DenseNet and Multi-Attention</h4>
+                <p class="project-description">Proposed a novel model combining Concatenated DenseNet with channel, spatial, and self-attention mechanisms for dermatoscopy image classification. Achieved 97.08% accuracy on the ISIC 2018 dataset and utilized Grad-CAM for lesion explainability.</p>
+                <div class="project-badges">
+                    <span class="badge published">Published</span>
+                    <span class="badge status">ICISET 2024 (Best Paper Award)</span>
+                </div>
+            </div>
+
+            <p class="research-links-note">For detailed citations and DOIs, please visit the <a href="publications.html">Publications page</a>.</p>
+        </div>
+
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="copyright">
+                &copy; <span id="current-year"></span> Noman Amin
+                <script>
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                </script>
+            </div>
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=7gtWOFMAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://www.researchgate.net/profile/Noman-Amin-2?ev=hdr_xprf" target="_blank">ResearchGate</a>
+                <a href="https://orcid.org/0009-0000-7102-0461" target="_blank">ORCID</a> 
+                <a href="https://github.com/noman-amin-n" target="_blank">GitHub</a> 
+                <!-- <a href="#">Twitter / X</a> -->
+                <a href="https://www.linkedin.com/in/noman-amin-164231239" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
