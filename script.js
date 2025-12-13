@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (saved === "light" || saved === "dark") {
     setTheme(saved);
   } else {
-    updateToggleUI();
+    // updateToggleUI();
+    setTheme("light");
   }
 
   // Toggle on click
