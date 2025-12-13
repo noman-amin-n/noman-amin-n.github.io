@@ -8,7 +8,7 @@
 }
 
 /* =========================================
-   CSS VARIABLES (Easy Customization)
+   CSS VARIABLES (Easy Customization) — LIGHT DEFAULT
    ========================================= */
 :root {
   --color-primary: #0A192F;    /* Deep Oxford Blue - Classic/Formal */
@@ -36,6 +36,250 @@
 }
 
 /* =========================================
+   THEME OVERRIDE SUPPORT (for manual toggle)
+   - If you add JS to toggle html.dark/html.light,
+     these will override the OS preference.
+   ========================================= */
+html.dark {
+  /* Core palette */
+  --color-bg: #0B1220;
+  --color-white: #0F172A;
+  --color-text: #E5E7EB;
+  --color-primary: #E5E7EB;
+  --color-secondary: #9CA3AF;
+  --color-accent: #60A5FA;
+
+  /* Surfaces/borders/shadows */
+  --color-border: rgba(255, 255, 255, 0.10);
+  --surface: rgba(15, 23, 42, 0.72);
+
+  --shadow-xs: 0 8px 18px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 14px 28px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 22px 50px rgba(0, 0, 0, 0.45);
+}
+
+html.light {
+  /* Force light palette even if OS is dark */
+  --color-primary: #0A192F;
+  --color-secondary: #8892B0;
+  --color-accent: #1d67d7;
+  --color-bg: #F8F9FA;
+  --color-white: #ffffff;
+  --color-text: #333333;
+
+  --color-border: rgba(10, 25, 47, 0.10);
+  --surface: rgba(255, 255, 255, 0.85);
+
+  --shadow-xs: 0 6px 16px rgba(10, 25, 47, 0.06);
+  --shadow-sm: 0 10px 24px rgba(10, 25, 47, 0.08);
+  --shadow-md: 0 18px 40px rgba(10, 25, 47, 0.10);
+}
+
+/* =========================================
+   MODERN DARK MODE (AUTO via OS)
+   - Applies only if user has NOT forced html.light
+   ========================================= */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --color-bg: #0B1220;
+    --color-white: #0F172A;
+    --color-text: #E5E7EB;
+    --color-primary: #E5E7EB;
+    --color-secondary: #9CA3AF;
+    --color-accent: #60A5FA;
+
+    --color-border: rgba(255, 255, 255, 0.10);
+    --surface: rgba(15, 23, 42, 0.72);
+
+    --shadow-xs: 0 8px 18px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 14px 28px rgba(0, 0, 0, 0.40);
+    --shadow-md: 0 22px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  html:not(.light) body {
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(96, 165, 250, 0.12), transparent 55%),
+                radial-gradient(900px 500px at 90% 0%, rgba(96, 165, 250, 0.08), transparent 60%),
+                var(--color-bg);
+    color: var(--color-text);
+  }
+
+  html:not(.light) a:hover { color: var(--color-accent); }
+
+  html:not(.light) ::selection { background: rgba(96, 165, 250, 0.22); }
+
+  /* Header glass in dark */
+  html:not(.light) header {
+    background: rgba(11, 18, 32, 0.72);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Dark mode NAV readability */
+  html:not(.light) .logo,
+  html:not(.light) .nav-links a {
+    color: var(--color-primary) !important;
+  }
+
+  html:not(.light) .nav-links a::after { background: var(--color-accent); }
+
+  /* Buttons */
+  html:not(.light) .btn-cv {
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  }
+
+  html:not(.light) .btn-cv:hover {
+    background-color: rgba(229, 231, 235, 0.12);
+    color: var(--color-primary) !important;
+  }
+
+  /* Surfaces/cards */
+  html:not(.light) .research-focus,
+  html:not(.light) .about-me {
+    background-color: rgba(15, 23, 42, 0.70);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  html:not(.light) .focus-item,
+  html:not(.light) .pub-item,
+  html:not(.light) .timeline-item,
+  html:not(.light) .experience-item,
+  html:not(.light) .thesis-block {
+    background: rgba(15, 23, 42, 0.78) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+    box-shadow: var(--shadow-xs);
+  }
+
+  html:not(.light) .focus-item:hover,
+  html:not(.light) .pub-item:hover,
+  html:not(.light) .project-card:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Project cards */
+  html:not(.light) .project-card {
+    background-color: rgba(15, 23, 42, 0.80);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-xs);
+  }
+
+  /* Text colors */
+  html:not(.light) .hero p,
+  html:not(.light) .focus-item p,
+  html:not(.light) .pub-desc,
+  html:not(.light) .institution-name,
+  html:not(.light) .achievement-context,
+  html:not(.light) .role-responsibilities,
+  html:not(.light) .project-description,
+  html:not(.light) .citation,
+  html:not(.light) .thesis-meta,
+  html:not(.light) .research-links-note {
+    color: rgba(229,231,235,0.82) !important;
+  }
+
+  html:not(.light) .pub-meta { color: rgba(229,231,235,0.72) !important; }
+
+  html:not(.light) .section-title { border-bottom-color: rgba(96,165,250,0.85); }
+
+  /* Timeline dot border */
+  html:not(.light) .timeline-item:before {
+    background-color: rgba(229,231,235,0.90);
+    border-color: rgba(11, 18, 32, 0.95);
+  }
+
+  /* Research interest list contrast fix */
+  html:not(.light) .interest-list li {
+    color: rgba(229, 231, 235, 0.88) !important;
+  }
+  html:not(.light) .interest-list li b,
+  html:not(.light) .interest-list li strong {
+    color: rgba(243, 244, 246, 0.95) !important;
+  }
+  html:not(.light) .interest-list li::before {
+    color: var(--color-accent) !important;
+    opacity: 0.95;
+  }
+
+  /* CV viewer */
+  html:not(.light) .pdf-viewer-container {
+    background-color: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.10);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Footer (modern dark, no pills per-link) */
+  html:not(.light) footer {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.92),
+      rgba(10, 16, 32, 0.98)
+    );
+    color: rgba(229, 231, 235, 0.88);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  html:not(.light) .copyright {
+    color: rgba(229, 231, 235, 0.82);
+  }
+
+  html:not(.light) .social-links a {
+    color: rgba(229, 231, 235, 0.78);
+    opacity: 0.85;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    transition: opacity 0.2s ease, color 0.25s ease, transform 0.2s ease;
+  }
+
+  html:not(.light) .social-links a:hover {
+    opacity: 1;
+    color: rgba(229, 231, 235, 0.96);
+    transform: translateY(-1px);
+  }
+
+  /* Dark mobile menu surfaces */
+  @media (max-width: 768px) {
+    html:not(.light) .hamburger {
+      background: rgba(15, 23, 42, 0.70) !important;
+      border-color: rgba(255,255,255,0.10) !important;
+      box-shadow: var(--shadow-sm) !important;
+      color: var(--color-primary) !important;
+    }
+
+    html:not(.light) .nav-links {
+      background: rgba(15, 23, 42, 0.72) !important;
+      border-color: rgba(255,255,255,0.10) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+
+    html:not(.light) .nav-links a {
+      background: rgba(255,255,255,0.06) !important;
+      border-color: rgba(255,255,255,0.10) !important;
+      color: var(--color-primary) !important;
+    }
+
+    html:not(.light) .nav-links a:hover {
+      background: rgba(255,255,255,0.10) !important;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.45) !important;
+    }
+
+    html:not(.light) .nav-links a.active-link {
+      background: linear-gradient(135deg, rgba(96,165,250,0.95), rgba(59,130,246,0.85)) !important;
+      color: #0B1220 !important;
+      box-shadow: 0 18px 40px rgba(96,165,250,0.20) !important;
+    }
+
+    /* Dark mobile footer spacing */
+    html:not(.light) .social-links a {
+      margin: 6px 6px 0 6px !important;
+    }
+  }
+}
+
+/* =========================================
    GLOBAL BASE
    ========================================= */
 html { scroll-behavior: smooth; }
@@ -48,9 +292,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: rgba(29, 103, 215, 0.18);
-}
+::selection { background: rgba(29, 103, 215, 0.18); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
@@ -109,6 +351,30 @@ nav {
   align-items: center;
 }
 
+/* If you add a theme toggle button in nav, this keeps it aligned nicely */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(10, 25, 47, 0.10);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--color-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Desktop positioning: pushes it to the right nicely */
+  margin-left: auto;
+}
+
+.theme-toggle:active { transform: scale(0.98); }
+
+.theme-toggle i { font-size: 1.1rem; }
+
 .logo {
   font-family: var(--font-serif);
   font-size: 1.5rem;
@@ -146,20 +412,15 @@ nav {
   border-radius: 2px;
 }
 
-.nav-links a:hover::after {
-  transform: scaleX(1);
-}
+.nav-links a:hover::after { transform: scaleX(1); }
 
-/* CV button (keep as is, with a slightly modern feel) */
-
-
-
+/* CV button (kept design, modern pill) */
 .btn-cv {
   padding: 8px 15px;
   background-color: var(--color-bg);
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: 999px; /* modern pill */
+  border-radius: 999px;
   font-size: 0.9rem;
   text-decoration: none;
   margin-right: 15px;
@@ -173,8 +434,6 @@ nav {
   transform: translateY(-1px);
   box-shadow: 0 16px 28px rgba(29, 103, 215, 0.20);
 }
-
-
 
 /* =========================================
    HOME: HERO SECTION
@@ -298,7 +557,6 @@ nav {
 .about-me {
   background-color: var(--color-white);
   padding: 60px 0;
-
   border-top: 1px solid rgba(10, 25, 47, 0.06);
 }
 
@@ -551,9 +809,6 @@ footer {
   margin-right: 10px;
 }
 
-
-
-
 .pub-entry {
   display: grid;
   grid-template-columns: 80px 1fr auto;
@@ -561,8 +816,6 @@ footer {
   align-items: flex-start;
   padding: 20px 0;
   border-bottom: 1px dashed rgba(0,0,0,0.1);
-
-  /* modern separation */
   border-radius: var(--radius-md);
 }
 
@@ -734,8 +987,6 @@ footer {
   gap: 30px;
   padding: 20px 0;
   border-bottom: 1px dashed rgba(0,0,0,0.1);
-
-  /* modern hover */
   transition: transform 0.2s ease, background-color 0.2s ease;
   border-radius: var(--radius-md);
 }
@@ -875,7 +1126,6 @@ footer {
 
 .research-group { margin-bottom: 40px; padding-top: 20px; }
 
-
 .research-section .group-title {
   font-family: var(--font-serif);
   font-size: 1.3rem;
@@ -890,8 +1140,6 @@ footer {
   color: var(--color-accent);
   margin-right: 10px;
 }
-
-
 
 .interest-list {
   list-style: none;
@@ -916,10 +1164,7 @@ footer {
   color: var(--color-accent);
 }
 
-.interest-list li strong {
-    color: var(--color-primary);
-}
-
+.interest-list li strong { color: var(--color-primary); }
 
 /* Thesis Block Styling */
 .thesis-block {
@@ -964,7 +1209,7 @@ footer {
   background-color: var(--color-bg);
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: 999px; /* modern pill */
+  border-radius: 999px;
   font-size: 0.9rem;
   text-decoration: none;
   margin-right: 15px;
@@ -999,7 +1244,7 @@ footer {
 .badge {
   display: inline-block;
   padding: 3px 10px;
-  border-radius: 999px; /* modern pill */
+  border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1039,7 +1284,7 @@ footer {
   background-color: var(--color-primary);
   color: var(--color-white);
   padding: 10px 20px;
-  border-radius: 999px; /* modern pill */
+  border-radius: 999px;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
   display: inline-flex;
@@ -1121,7 +1366,7 @@ footer {
     border-radius: 12px;
   }
 
-  html { font-size: 14px; } /* smaller overall */
+  html { font-size: 14px; }
 
   .container {
     width: 95%;
@@ -1166,6 +1411,10 @@ footer {
   }
 
   .logo { font-size: 1.2rem; }
+
+  /* Put hamburger + theme button on the right */
+  .hamburger { margin-left: auto; }
+  .theme-toggle { margin-left: 10px; }
 
   .hamburger {
     display: inline-flex;
@@ -1417,4 +1666,127 @@ footer {
   }
   .hero-image img { max-width: 86%; }
   .pdf-viewer-container { height: 460px; }
+}
+
+
+/* =========================================
+   MANUAL DARK MODE OVERRIDES (when html.dark)
+   Paste at VERY BOTTOM of styles.css
+   ========================================= */
+html.dark body{
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(96, 165, 250, 0.12), transparent 55%),
+              radial-gradient(900px 500px at 90% 0%, rgba(96, 165, 250, 0.08), transparent 60%),
+              var(--color-bg);
+  color: var(--color-text);
+}
+
+html.dark ::selection { background: rgba(96, 165, 250, 0.22); }
+
+/* Header/nav */
+html.dark header{
+  background: rgba(11, 18, 32, 0.72) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+html.dark .logo,
+html.dark .nav-links a{
+  color: var(--color-primary) !important;
+}
+
+html.dark .nav-links a::after{ background: var(--color-accent) !important; }
+
+html.dark .btn-cv{
+  border-color: rgba(255,255,255,0.16) !important;
+}
+
+/* Sections/cards */
+html.dark .research-focus,
+html.dark .about-me{
+  background-color: rgba(15, 23, 42, 0.70) !important;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+html.dark .focus-item,
+html.dark .pub-item,
+html.dark .timeline-item,
+html.dark .experience-item,
+html.dark .thesis-block,
+html.dark .project-card{
+  background: rgba(15, 23, 42, 0.78) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+/* Text fixes (because many are hard-coded as #555/#666) */
+html.dark .hero p,
+html.dark .focus-item p,
+html.dark .pub-desc,
+html.dark .institution-name,
+html.dark .achievement-context,
+html.dark .role-responsibilities,
+html.dark .project-description,
+html.dark .citation,
+html.dark .thesis-meta,
+html.dark .research-links-note{
+  color: rgba(229,231,235,0.82) !important;
+}
+
+/* Research interest list contrast */
+html.dark .interest-list li{
+  color: rgba(229, 231, 235, 0.88) !important;
+}
+html.dark .interest-list li b,
+html.dark .interest-list li strong{
+  color: rgba(243, 244, 246, 0.95) !important;
+}
+html.dark .interest-list li::before{
+  color: var(--color-accent) !important;
+  opacity: 0.95;
+}
+
+/* Footer (modern dark, no per-link pill) */
+html.dark footer{
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(10, 16, 32, 0.98)
+  ) !important;
+  color: rgba(229, 231, 235, 0.88) !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+html.dark .social-links a{
+  color: rgba(229, 231, 235, 0.78) !important;
+  opacity: 0.85 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+html.dark .social-links a:hover{
+  opacity: 1 !important;
+  color: rgba(229, 231, 235, 0.96) !important;
+  transform: translateY(-1px);
+}
+
+/* Mobile menu (dark) */
+@media (max-width: 768px){
+  html.dark .hamburger{
+    background: rgba(15, 23, 42, 0.70) !important;
+    border-color: rgba(255,255,255,0.10) !important;
+    color: var(--color-primary) !important;
+  }
+
+  html.dark .nav-links{
+    background: rgba(15, 23, 42, 0.72) !important;
+    border-color: rgba(255,255,255,0.10) !important;
+  }
+
+  html.dark .nav-links a{
+    background: rgba(255,255,255,0.06) !important;
+    border-color: rgba(255,255,255,0.10) !important;
+    color: var(--color-primary) !important;
+  }
 }
