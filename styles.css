@@ -991,10 +991,10 @@ footer {
   border-radius: var(--radius-md);
 }
 
-.achievement-item:hover {
+/* .achievement-item:hover {
   background: rgba(231, 246, 255, 0.968);
   transform: translateY(-2px);
-}
+} */
 
 .achievement-item:last-child { border-bottom: none; }
 
